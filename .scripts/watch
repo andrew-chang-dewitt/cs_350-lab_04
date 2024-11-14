@@ -9,5 +9,5 @@ files=$(ag -l -g .)
 echo "running command: $cmd"
 
 echo "watching $files for changes...\n\n"
-entr "$cmd" <<< $files
+entr -s "$cmd" <<< $files
 echo "\n\n...stopping watching"
