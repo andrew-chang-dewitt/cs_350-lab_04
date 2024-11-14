@@ -16,6 +16,8 @@
 ## - n = -190
 ## - n = 17
 ##
+	.include "debug.s"
+
 	.data
 # n:	.word 4
 # 	# sumSquare(n) => 10
@@ -57,13 +59,17 @@ sumSquare:
 
 	# body
 	add s0 a0 x0	# save a0 to s0
+	debug("given n" s0 1)
 	jal ra isEven	# decrement if even
 	bne a0 x0 loop
 	addi s0 s0 -1
+	debug("n is even, decremented to" s0 1)
 loop:	# count down by 2 from s0 to 1, squaring on every odd
 	bge x0 s0 qloop	# term loop if a0 == 0
 	mul t0 s0 s0
+	debug("square of s0" t0 1)
 	add t1 t1 t0
+	debug("sum so far" t1 1)
 	addi s0 s0 -2
 	j loop
 qloop:  # continue below...
