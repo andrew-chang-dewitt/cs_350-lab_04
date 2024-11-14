@@ -10,12 +10,12 @@
 ## - n = 11
 ##
 	.data
-# n:	.word -15
-# 	# square(n) => 0
+n:	.word -15
+	# square(n) => 0
 # n:	.word 200
 # 	# square(n) => 40000
-n:	.word 11
-	# square(n) => 121
+# n:	.word 11
+# 	# square(n) => 121
 
 	.text
 
@@ -35,8 +35,11 @@ exit:
 	#   input:      a0 <- signed 32-bit integer
 	#   output:     a0 <- 32-bit unsigned integer
 square:
-	mul a0 a0 a0	# return reg gets a0 * a0
-	jr ra
+	blt a0 x0 isNeg # go to special handler if a0 < 0
+	mul a0 a0 a0	# return a0 * a0
+	jr ra		# return to caller
+isNeg:  add a0 x0 x0	# return 0 if a0 is negative
+	jr ra		# return to caller
 
 	# p_int(a0) is
 	#  input:	a0 <- signed 32-bit integer
