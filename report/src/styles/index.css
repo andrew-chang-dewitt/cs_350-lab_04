@@ -224,6 +224,11 @@ svg.fill.action,
   p {
     break-inside: auto;
   }
+  /* retains background colors set behind text */
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
 @page {
   margin: 0.5in;
