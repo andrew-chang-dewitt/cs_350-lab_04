@@ -17,12 +17,6 @@
 ## - n = 17
 ##
 	.data
-# n:	.word 4
-# 	# sumSquare(n) => 10
-# n:	.word 5
-# 	# sumSquare(n) => 35
-# n:	.word 7
-# 	# sumSquare(n) => 84
 # n:	.word 28
 #	# sumSquare(n) => 3654
 # n:	.word -190
@@ -41,8 +35,8 @@ main:	la s0 n		# s0 <- &n
 	jal ra p_int
 
 exit:
-	addi a7, x0, 10		# set up exit call
-	ecall			# exit
+	addi a0, x0, 10	# set up exit call
+	ecall		# exit
 
 	# sumSquare(a0) is
 	#  input:	a0 <- signed 32-bit integer

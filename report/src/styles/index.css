@@ -101,6 +101,20 @@ h3:has(+ div) {
 section > h3:first-child {
   margin-top: 1rem;
 }
+pre,
+code {
+  font-family: var(--fonts-family-mono);
+}
+p pre,
+p code {
+  color: var(--colors-light);
+  background-color: var(--colors-dark-light-alternate);
+  padding: 0 0.2rem;
+  border-radius: 0.2rem;
+}
+img {
+  max-width: 80%;
+}
 
 .contact-list ul,
 .skills-list ul {

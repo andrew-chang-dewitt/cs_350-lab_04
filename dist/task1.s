@@ -28,7 +28,7 @@ main:	la s0 n		# s0 <- &n
 	jal ra p_int
 
 exit:
-	addi a7, x0, 10		# set up exit call
+	addi a0, x0, 10		# venus needs exit code in a0
 	ecall			# exit
 
 	# square(a0) is
